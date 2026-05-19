@@ -138,6 +138,6 @@ Each tier solves a distinct problem. Coupling them would make the system brittle
 ## Author
 
 **Rosa** — Data Analyst & ML Engineer in Training
-[LinkedIn](https://linkedin.com) · [Portfolio](#)
+[LinkedIn](linkedin.com/in/rosa-asuquo-151b78239) · [Portfolio](#)
 
 > *Built to scratch my own itch: too much time was going into cleaning before any real analysis could start. DataFlow AI automates the boring parts so analysts can focus on what actually matters.*
