@@ -6,13 +6,12 @@ import numpy as np
 import io
 import re
 import os
-import google.generativeai as genai
+from google import genai
 
 load_dotenv()
 
 # Configure Gemini
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-gemini_model = genai.GenerativeModel("gemini-pro")
+client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
 app = FastAPI(
     title="DataFlow AI",
@@ -381,7 +380,10 @@ async def ai_insights(file: UploadFile = File(...)):
 
     try:
         prompt = build_ai_prompt(df, file.filename)
-        response = gemini_model.generate_content(prompt)
+        response = client.models.generate_content(
+            model="gemini-2.0-flash",
+            contents=prompt
+        )
         insight_text = response.text.strip()
     except Exception as e:
         insight_text = f"AI insights unavailable: {str(e)}"
